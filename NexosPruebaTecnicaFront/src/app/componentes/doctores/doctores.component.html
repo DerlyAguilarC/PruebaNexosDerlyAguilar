@@ -1,0 +1,45 @@
+<button mat-raised-button color="primary" (click)="openDialog()">Crear nuevo Doctor</button>
+<br />
+<br />
+<table mat-table [dataSource]="datasourceDoctores" class="mat-elevation-z8" style="width: 100%;">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="nombreCompleto">
+    <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombreCompleto}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="especialidad">
+    <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+    <td mat-cell *matCellDef="let element"> {{element.especialidad}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="numeroCredencial">
+    <th mat-header-cell *matHeaderCellDef> # Credencial </th>
+    <td mat-cell *matCellDef="let element"> {{element.numeroCredencial}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="hospitalTrabajo">
+    <th mat-header-cell *matHeaderCellDef> Hospital </th>
+    <td mat-cell *matCellDef="let element"> {{element.hospitalTrabajo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="asignarVerPacientes">
+    <th mat-header-cell *matHeaderCellDef> Asignar / Ver Pacientes </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="accent" (click)="verAsignarPacientes(element.id)">
+        Asignar / Ver
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+

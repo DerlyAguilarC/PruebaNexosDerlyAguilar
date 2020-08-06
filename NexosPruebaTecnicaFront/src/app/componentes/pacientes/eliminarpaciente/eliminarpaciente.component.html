@@ -1,0 +1,9 @@
+<div style="text-align:center"><p><b>¿Está seguro que desea eliminar el paciente?</b></p></div>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <button mat-raised-button color="primary" (click)="EliminarPaciente()">Eliminar</button>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-raised-button color="warn" [mat-dialog-close] id="btnCancelarEliminarPaciente">Cancelar</button>
+  </mat-grid-tile>
+</mat-grid-list>

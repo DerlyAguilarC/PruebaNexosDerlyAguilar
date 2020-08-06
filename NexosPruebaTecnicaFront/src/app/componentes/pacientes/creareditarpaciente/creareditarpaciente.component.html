@@ -1,0 +1,30 @@
+<div style="margin:3%">
+  <p>Ingrese los datos solicitados</p>
+  <br />
+  <mat-form-field style="width: 100%;">
+    <input matInput placeholder="Nombre completo" type="text" [(ngModel)]="nuevoPaciente.nombreCompleto">
+  </mat-form-field>
+  <br />
+  <mat-form-field style="width: 100%;">
+    <input matInput placeholder="# Seguro Social" type="text" [(ngModel)]="nuevoPaciente.numeroSeguroSocial">
+  </mat-form-field>
+  <br />  
+  <mat-form-field style="width: 100%;">
+    <input matInput placeholder="Código Postal" type="text" [(ngModel)]="nuevoPaciente.codigoPostal">
+  </mat-form-field>
+  <br />
+  <mat-form-field style="width: 100%;">
+    <input matInput placeholder="Teléfono Contacto" type="text" [(ngModel)]="nuevoPaciente.telefonoContacto">
+  </mat-form-field>
+  <br />
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <button mat-raised-button color="primary" (click)="guardarNuevoPaciente()">{{textoBotonCrearEditar}}</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-raised-button color="warn" [mat-dialog-close] id="btnCancelarCrearPaciente">Cancelar</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+</div>

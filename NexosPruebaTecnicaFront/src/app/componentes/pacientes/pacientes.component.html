@@ -1,0 +1,74 @@
+<button mat-raised-button color="primary" (click)="abrirCrearEditarPaciente(0)">Crear nuevo Paciente</button>
+<br />
+<br />
+<table mat-table [dataSource]="datasourcePacientes" class="mat-elevation-z8" style="width: 100%;">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="nombreCompleto">
+    <th mat-header-cell *matHeaderCellDef> Nombre Completo </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombreCompleto}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="numeroSeguroSocial">
+    <th mat-header-cell *matHeaderCellDef> Numero Seguro Social </th>
+    <td mat-cell *matCellDef="let element"> {{element.numeroSeguroSocial}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="codigoPostal">
+    <th mat-header-cell *matHeaderCellDef> Código Postal </th>
+    <td mat-cell *matCellDef="let element"> {{element.codigoPostal}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="telefonoContacto">
+    <th mat-header-cell *matHeaderCellDef> Telefono Contacto </th>
+    <td mat-cell *matCellDef="let element"> {{element.telefonoContacto}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="doctoresAsignados">
+    <th mat-header-cell *matHeaderCellDef> Doctores asignados </th>
+    <td mat-cell *matCellDef="let element">
+      <ul>
+        <li *ngFor="let doctor of element.listadoDoctores;">
+          {{doctor.nombreCompleto}}
+        </li>
+      </ul>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="verPaciente">
+    <th mat-header-cell *matHeaderCellDef> Ver detalle </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="accent">
+        Ver detalle
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="editarPaciente">
+    <th mat-header-cell *matHeaderCellDef> Editar </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="accent" (click)="abrirCrearEditarPaciente(element.id)">
+        Editar
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="eliminarPaciente">
+    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="warn" (click)="eliminarPaciente(element.id)">
+        Eliminar
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
